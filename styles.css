@@ -1,0 +1,29 @@
+:root {
+  --black: #0e100f;
+  --secondary: #e36138;
+  --accent: #365b54;
+}
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  line-height: 1.5;
+  font-size: 1.8rem;
+  color: white;
+  background-color: var(--black);
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
