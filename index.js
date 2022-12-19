@@ -1,5 +1,6 @@
 import users from "./data/data.js";
 let sidebar = $(".sidebar");
+let details = $(".details");
 let hamburger = $(".hamburger");
 let hamburgerIcon = $("span")[0];
 
@@ -21,7 +22,7 @@ hamburger.on("click", () => {
 
 // generating sidebar and display HTML
 $("body").ready(() => {
-  let html = users
+  let userHtml = users
     .map((user, index) => {
       return `
     <div class="sidebar__content">
@@ -31,5 +32,15 @@ $("body").ready(() => {
     })
     .join("");
 
-  $(".sidebar").html(html);
+  let currentUser = users[state.currentUserNumber];
+
+  let detailHtml = `
+  <h1><b>Name:</b> ${currentUser.name}</h1>
+  <p>${currentUser.address}</p>
+  <p>${currentUser.about}</p>
+  
+  `;
+
+  sidebar.html(userHtml);
+  details.html(detailHtml);
 });
