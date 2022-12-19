@@ -15,7 +15,7 @@ html {
 
 body {
   line-height: 1.5;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   color: white;
   background-color: var(--black);
 }
@@ -26,4 +26,31 @@ li {
 
 a {
   text-decoration: none;
+}
+
+.sidebar {
+  width: 20rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: var(--secondary);
+}
+
+div.sidebar__content {
+  height: 10rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid var(--accent);
+}
+
+div.sidebar__content:hover {
+  background: linear-gradient(
+    329deg,
+    rgba(75, 142, 41, 1) 40%,
+    rgba(70, 108, 51, 1) 47%,
+    rgba(70, 107, 51, 1) 68%,
+    rgba(4, 10, 3, 1) 87%
+  );
 }
