@@ -28,7 +28,13 @@ a {
   text-decoration: none;
 }
 
+main {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
 .sidebar {
+  padding-top: 10rem;
   width: 20rem;
   position: fixed;
   left: 0;
@@ -53,4 +59,34 @@ div.sidebar__content:hover {
     rgba(70, 107, 51, 1) 68%,
     rgba(4, 10, 3, 1) 87%
   );
+}
+
+.hamburger {
+  position: fixed;
+  cursor: pointer;
+  left: 10rem;
+  top: 3rem;
+  transform: translateX(-50%);
+  border: none;
+  display: none;
+}
+
+.hamburger span {
+  font-size: 4rem;
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    transition: all 0.3s linear;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    left: 4rem;
+    display: block;
+  }
 }
