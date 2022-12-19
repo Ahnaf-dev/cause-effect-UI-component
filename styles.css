@@ -51,6 +51,12 @@ div.sidebar__content {
   border-bottom: 1px solid var(--accent);
 }
 
+div.sidebar__content.active {
+  font-weight: 700;
+  font-size: 3rem;
+  color: var(--accent);
+}
+
 div.sidebar__content:hover {
   background: linear-gradient(
     329deg,

@@ -22,16 +22,22 @@ hamburger.on("click", () => {
 
 // generating sidebar and display HTML
 $("body").ready(() => {
-  let userHtml = users
-    .map((user, index) => {
-      return `
-    <div class="sidebar__content">
-      <p>${user.name}</p>
-    </div>
-    `;
-    })
-    .join("");
+  generateUserDisplay();
+  generateUserList();
 
+  $(".sidebar__content").each((val, content) => {
+    content.addEventListener("click", () => {
+      state.currentUserNumber = val;
+      generateUserDisplay();
+
+      // styles for clicked users
+      $(".active").removeClass("active");
+      content.classList.add("active");
+    });
+  });
+});
+
+function generateUserDisplay() {
   let currentUser = users[state.currentUserNumber];
 
   let detailHtml = `
@@ -41,6 +47,21 @@ $("body").ready(() => {
   
   `;
 
-  sidebar.html(userHtml);
   details.html(detailHtml);
-});
+}
+
+function generateUserList() {
+  let userHtml = users
+    .map((user, index) => {
+      return `
+  <div  class="sidebar__content ${
+    index === state.currentUserNumber ? "active" : ""
+  }">
+    <p>${user.name}</p>
+  </div>
+  `;
+    })
+    .join("");
+
+  sidebar.html(userHtml);
+}
